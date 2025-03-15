@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - FarmFeast</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .order-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .order-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .order-summary {
+            margin-bottom: 20px;
+        }
+        .order-summary h3 {
+            margin-bottom: 10px;
+        }
+        .order-summary p {
+            margin: 5px 0;
+        }
+        .checkout-form {
+            margin-bottom: 20px;
+        }
+        .checkout-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .checkout-form input,
+        .checkout-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .payment-gateway {
+            margin-bottom: 20px;
+        }
+        .payment-gateway h3 {
+            margin-bottom: 10px;
+        }
+        .payment-gateway input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .delivery-details {
+            margin-bottom: 20px;
+        }
+        .delivery-details h3 {
+            margin-bottom: 10px;
+        }
+        .delivery-details p {
+            margin: 5px 0;
+        }
+        .delivery-progress {
+            margin-top: 20px;
+        }
+        .delivery-progress h3 {
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar div {
+            height: 20px;
+            background: #2e7d32;
+            width: 50%; /* Example: 50% completed */
+            border-radius: 10px;
+        }
+        .route-map {
+            margin-top: 20px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #256a27;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h2>Your Order</h2>
+
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <h3>Cart Items</h3>
+            <div class="cart-item">
+                <p>Potatoes - 2kg</p>
+                <p>$4.00</p>
+            </div>
+            <div class="cart-item">
+                <p>Carrots - 1kg</p>
+                <p>$1.80</p>
+            </div>
+            <div class="cart-item">
+                <p>Spinach - 0.5kg</p>
+                <p>$1.10</p>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: $6.90</p>
+            <p>Delivery Fee: $2.00</p>
+            <p><strong>Total: $8.90</strong></p>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="checkout-form">
+            <h3>Delivery Details</h3>
+            <label for="delivery-address">Delivery Address:</label>
+            <input type="text" id="delivery-address" name="delivery-address" placeholder="Enter your address in Guntur" required>
+            <label for="delivery-date">Delivery Date:</label>
+            <input type="date" id="delivery-date" name="delivery-date" required>
+        </div>
+
+        <!-- Payment Gateway -->
+        <div class="payment-gateway">
+            <h3>Payment Details</h3>
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        </div>
+
+        <!-- Delivery Details -->
+        <div class="delivery-details">
+            <h3>Delivery Information</h3>
+            <p><strong>Estimated Delivery Date:</strong> <span id="delivery-date-text"></span></p>
+            <p><strong>Delivery Time:</strong> Within 24 hours (Same Day or Next Day)</p>
+            <p><strong>Freshness Guarantee:</strong> We deliver fresh vegetables within 24 hours!</p>
+        </div>
+
+        <!-- Delivery Progress -->
+        <div class="delivery-progress">
+            <h3>Delivery Progress</h3>
+            <div class="progress-bar">
+                <div style="width: 50%;"></div> <!-- Example: 50% completed -->
+            </div>
+            <p><strong>Distance Covered:</strong> 5km / 10km</p>
+        </div>
+
+        <!-- Route Map -->
+        <div class="route-map">
+            <div id="map"></div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button class="btn">Place Order</button>
+    </div>
+
+    <!-- Google Maps Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <script>
+        // Initialize Google Maps
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: { lat: 16.3067, lng: 80.4365 }, // Center of Guntur
+            });
+
+            // Directions Service
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            // Farm Location in Guntur
+            const farmLocation = { lat: 16.3067, lng: 80.4365 }; // Example: Farm location in Guntur
+
+            // Calculate Route when address is entered
+            const deliveryAddressInput = document.getElementById('delivery-address');
+            deliveryAddressInput.addEventListener('input', () => {
+                const customerAddress = deliveryAddressInput.value;
+
+                if (customerAddress) {
+                    directionsService.route(
+                        {
+                            origin: farmLocation,
+                            destination: customerAddress + ', Guntur',
+                            travelMode: google.maps.TravelMode.DRIVING,
+                        },
+                        (response, status) => {
+                            if (status === 'OK') {
+                                directionsRenderer.setDirections(response);
+                            } else {
+                                alert('Directions request failed: ' + status);
+                            }
+                        }
+                    );
+                }
+            });
+        }
+
+        // Calculate Estimated Delivery Date
+        const deliveryDateInput = document.getElementById('delivery-date');
+        const deliveryDateText = document.getElementById('delivery-date-text');
+
+        const today = new Date();
+        const tomorrow = new Date();
+        tomorrow.setDate(today.getDate() + 1);
+
+        // Set default delivery date to today or tomorrow based on time
+        const cutoffTime = 15; // 3 PM cutoff for same-day delivery
+        if (today.getHours() < cutoffTime) {
+            deliveryDateInput.value = today.toISOString().split('T')[0];
+            deliveryDateText.textContent = `Today (${today.toDateString()})`;
+        } else {
+            deliveryDateInput.value = tomorrow.toISOString().split('T')[0];
+            deliveryDateText.textContent = `Tomorrow (${tomorrow.toDateString()})`;
+        }
+
+        // Update delivery date text when user changes the date
+        deliveryDateInput.addEventListener('change', () => {
+            const selectedDate = new Date(deliveryDateInput.value);
+            deliveryDateText.textContent = selectedDate.toDateString();
+        });
+    </script>
+</body>
+</html>

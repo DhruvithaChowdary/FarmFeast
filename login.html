@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup - FarmFeast</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the login/signup page */
+        .login-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .login-container input,
+        .login-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-container .btn {
+            width: 100%;
+            padding: 10px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container .btn:hover {
+            background: #256a27;
+        }
+        .toggle-form {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .toggle-form a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .product-list label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 id="form-title">Login</h2>
+        <form id="login-form" action="#" method="POST">
+            <label for="role">Login as:</label>
+            <select id="role" name="role">
+                <option value="customer">Customer</option>
+                <option value="farmer">Farmer</option>
+            </select>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <form id="signup-form" action="#" method="POST" class="hidden">
+            <label for="signup-role">Signup as:</label>
+            <select id="signup-role" name="role">
+                <option value="customer">Customer</option>
+                <option value="farmer">Farmer</option>
+            </select>
+
+            <!-- Common fields for both Customer and Farmer -->
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+
+            <!-- Customer-specific fields -->
+            <div id="customer-fields">
+                <input type="number" name="family-size" placeholder="Family Size" required>
+            </div>
+
+            <!-- Farmer-specific fields -->
+            <div id="farmer-fields" class="hidden">
+                <label>Select Products to Sell:</label>
+                <div class="product-list">
+                    <!-- Carbs -->
+                    <label><input type="checkbox" name="products" value="potatoes"> Potatoes</label>
+                    <label><input type="checkbox" name="products" value="sweet-potato"> Sweet Potato</label>
+                    <label><input type="checkbox" name="products" value="corn"> Corn</label>
+                    <label><input type="checkbox" name="products" value="yam"> Yam</label>
+
+                    <!-- Proteins -->
+                    <label><input type="checkbox" name="products" value="beans"> Beans</label>
+                    <label><input type="checkbox" name="products" value="peas"> Peas</label>
+                    <label><input type="checkbox" name="products" value="lentils"> Lentils</label>
+                    <label><input type="checkbox" name="products" value="chickpeas"> Chickpeas</label>
+
+                    <!-- Fats -->
+                    <label><input type="checkbox" name="products" value="avocado"> Avocado</label>
+                    <label><input type="checkbox" name="products" value="nuts"> Nuts</label>
+                    <label><input type="checkbox" name="products" value="olives"> Olives</label>
+                    <label><input type="checkbox" name="products" value="coconuts"> Coconuts</label>
+
+                    <!-- Vitamins -->
+                    <label><input type="checkbox" name="products" value="carrots"> Carrots</label>
+                    <label><input type="checkbox" name="products" value="spinach"> Spinach</label>
+                    <label><input type="checkbox" name="products" value="tomatoes"> Tomatoes</label>
+                    <label><input type="checkbox" name="products" value="fenugreek-leaves"> Fenugreek Leaves</label>
+                    <label><input type="checkbox" name="products" value="coriander-leaves"> Coriander Leaves</label>
+
+                    <!-- Minerals -->
+                    <label><input type="checkbox" name="products" value="broccoli"> Broccoli</label>
+                    <label><input type="checkbox" name="products" value="bitter-gourd"> Bitter Gourd</label>
+                    <label><input type="checkbox" name="products" value="kale"> Kale</label>
+                    <label><input type="checkbox" name="products" value="zucchini"> Zucchini</label>
+
+                    <!-- Fiber -->
+                    <label><input type="checkbox" name="products" value="cabbage"> Cabbage</label>
+                    <label><input type="checkbox" name="products" value="okra"> Okra</label>
+                    <label><input type="checkbox" name="products" value="raddish"> Raddish</label>
+                    <label><input type="checkbox" name="products" value="pumpkin"> Pumpkin</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Signup</button>
+        </form>
+
+        <div class="toggle-form">
+            <span id="toggle-text">New user?</span>
+            <a href="#" id="toggle-link">Signup here</a>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between Login and Signup forms
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const toggleLink = document.getElementById('toggle-link');
+        const toggleText = document.getElementById('toggle-text');
+        const formTitle = document.getElementById('form-title');
+        const customerFields = document.getElementById('customer-fields');
+        const farmerFields = document.getElementById('farmer-fields');
+        const signupRole = document.getElementById('signup-role');
+
+        toggleLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (loginForm.classList.contains('hidden')) {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                toggleText.textContent = 'New user?';
+                toggleLink.textContent = 'Signup here';
+                formTitle.textContent = 'Login';
+            } else {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+                toggleText.textContent = 'Already a user?';
+                toggleLink.textContent = 'Login here';
+                formTitle.textContent = 'Signup';
+            }
+        });
+
+        // Show/hide fields based on role (Customer or Farmer)
+        signupRole.addEventListener('change', () => {
+            if (signupRole.value === 'farmer') {
+                customerFields.classList.add('hidden');
+                farmerFields.classList.remove('hidden');
+            } else {
+                customerFields.classList.remove('hidden');
+                farmerFields.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FarmFeast</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="order.html">Order</a>
+        <a href="login.html">Login</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Select Your Vegetables by Category</h2>
+        <label for="family-size">Enter Family Size:</label>
+        <input type="number" id="family-size" placeholder="Number of members" required>
+        <select id="category">
+            <option value="carbs">Carbs</option>
+            <option value="proteins">Proteins</option>
+            <option value="fats">Fats</option>
+            <option value="vitamins">Vitamins</option>
+            <option value="minerals">Minerals</option>
+            <option value="fiber">Fiber</option>
+        </select>
+        <button onclick="recommendVegetables()" class="btn">Get Recommendation</button>
+        <div id="recommendation"></div>
+    </div>
+
+    <div class="veggie-gallery">
+        <h2>Vegetables by Category</h2>
+        <div class="veggie-category" id="carbs">
+            <h3>Carbs</h3>
+            <img src="C:\Users\Lenovo\Desktop\FED\images\potato.jpg" alt="Potatoes">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\corn.jpg" alt="Corn">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\beetrooy.jpg" alt="Beetroot">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\bellpepper.jpg" alt="BellPeppers">
+             
+        </div>
+        <div class="veggie-category" id="proteins">
+            <h3>Proteins</h3>
+            <img src="images/beans.jpg" alt="Beans">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\peas.jpg" alt="Peas">
+        </div>
+        <div class="veggie-category" id="fats">
+            <h3>Fats</h3>
+            <img src="images/avocado.jpg" alt="Avocado">
+            <img src="images/nuts.jpg" alt="Nuts">
+        </div>
+        <div class="veggie-category" id="vitamins">
+            <h3>Vitamins</h3>
+            <img src="C:\Users\Lenovo\Desktop\FED\images\carrot.jpg" alt="Carrots">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\garlic.jpg" alt="Spinach">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\redchilli.jpg" alt="RedChilli">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\tomato.jpg" alt="Tomato>
+        </div>
+        <div class="veggie-category" id="minerals">
+            <h3>Minerals</h3>
+            <img src="C:\Users\Lenovo\Desktop\FED\images\brocolli.jpg" alt="Broccoli">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\bittergaurd.jpg" alt="BitterGaurd">
+        </div>
+        <div class="veggie-category" id="fiber">
+            <h3>Fiber</h3>
+            <img src="C:\Users\Lenovo\Desktop\FED\images\cabbage.jpg" alt="Cabbage">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\okra.jpg" alt="Okra">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\raddish.jpg" alt="Raddish">
+            <img src="C:\Users\Lenovo\Desktop\FED\images\pumpkin.jpg" alt="Pumpkin"
+            <img src="C:\Users\Lenovo\Desktop\FED\images\onion.jpg" alt="Onion"
+            <img src="C:\Users\Lenovo\Desktop\FED\images\garlic.jpg" alt="Garlic"
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>.In this i have many vegetables add every vegetable 

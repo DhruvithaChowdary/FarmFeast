@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FarmFeast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="order.html">Order</a>
+        <a href="login.html">Login</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="order.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+    </nav>
+    
+    <div class="container">
+        <h2>Select Your Vegetables by Category</h2>
+        <label for="family-size">Enter Family Size:</label>
+        <input type="number" id="family-size" placeholder="Number of members" required>
+        <select id="category">
+            <option value="carbs">Carbs</option>
+            <option value="proteins">Proteins</option>
+            <option value="fats">Fats</option>
+            <option value="vitamins">Vitamins</option>
+            <option value="minerals">Minerals</option>
+            <option value="fiber">Fiber</option>
+        </select>
+        <button onclick="recommendVegetables()" class="btn">Get Recommendation</button>
+        <div id="recommendation"></div>
+    </div>
+
+    <div class="veggie-gallery">
+        <h2>Vegetables by Category</h2>
+
+        <!-- Carbs -->
+        <div class="veggie-category" id="carbs">
+            <h3>Carbs</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\potato.jpg" alt="Potatoes">
+                    <p>Potatoes - Rs.40/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\corn.jpg" alt="Corn">
+                    <p>Corn - Rs.70/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\sweetpotato.jpg" alt="Sweet Potato">
+                    <p>Sweet Potato - Rs.65/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\yam.jpg" alt="Yam">
+                    <p>Yam - Rs.230/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proteins -->
+        <div class="veggie-category" id="proteins">
+            <h3>Proteins</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\beans.jpg" alt="Beans">
+                    <p>Beans - Rs.90/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\peas.jpg" alt="Peas">
+                    <p>Peas - Rs.50/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+              </div>
+        </div>
+
+        <!-- Fats -->
+        <div class="veggie-category" id="fats">
+            <h3>Fats</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\avacado.jpg" alt="Avocado">
+                    <p>Avocado - Rs.400/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\olives.jpg" alt="Olives">
+                    <p>Olives - Rs.380/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\coconut.jpg" alt="Coconuts">
+                    <p>Coconuts - Rs.70/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vitamins -->
+        <div class="veggie-category" id="vitamins">
+            <h3>Vitamins</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\carrot.jpg" alt="Carrots">
+                    <p>Carrots - Rs.40/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\garlic.jpg" alt="Garlic">
+                    <p>Garlic - Rs.420/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\redchilli.jpg" alt="Red Chilli">
+                    <p>Red Chilli - Rs.220/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\tomato.jpg" alt="Tomato">
+                    <p>Tomato - Rs.30/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\spinach.jpg" alt="Spinach">
+                    <p>Spinach - Rs.25/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\brocolli.jpg" alt="Broccoli">
+                    <p>Broccoli - Rs.60/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\fenugreek.jpg" alt="Fenugreek Leaves">
+                    <p>Fenugreek Leaves (Methi) - Rs.25/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\coriander.jpg" alt="Coriander Leaves">
+                    <p>Coriander Leaves (Dhania) - Rs.25/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minerals -->
+        <div class="veggie-category" id="minerals">
+            <h3>Minerals</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\brocolli.jpg" alt="Broccoli">
+                    <p>Broccoli - Rs.60/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\bittergaurd.jpg" alt="Bitter Gourd">
+                    <p>Bitter Gourd - Rs.40/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\kale.jpg" alt="Kale">
+                    <p>Kale - Rs.60/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\zucchini.jpg" alt="Zucchini">
+                    <p>Zucchini - Rs.80/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\ama.jpg" alt="Amaranth Leaves">
+                    <p>Amaranth Leaves (Chaulai) - Rs.40/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\mustardgreens.jpg" alt="Mustard Greens">
+                    <p>Mustard Greens (Sarson) - Rs.40/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiber -->
+        <div class="veggie-category" id="fiber">
+            <h3>Fiber</h3>
+            <div class="veggie-grid">
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\cabbage.jpg" alt="Cabbage">
+                    <p>Cabbage - Rs.30/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\okra.jpg" alt="Okra">
+                    <p>Okra - Rs.50/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\raddish.jpg" alt="Raddish">
+                    <p>Raddish - Rs.45/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\pumpkin.jpg" alt="Pumpkin">
+                    <p>Pumpkin - Rs.80/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\onion.jpg" alt="Onion">
+                    <p>Onion - Rs.50/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="veggie-item">
+                    <img src="C:\Users\Lenovo\Desktop\FED\images\garlic.jpg" alt="Garlic">
+                    <p>Garlic - Rs.420/kg</p>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
