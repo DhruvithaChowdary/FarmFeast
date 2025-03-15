@@ -1,7 +1,7 @@
 # FarmFeast
 
 Welcome to **FarmFeast**, a web application designed to connect farmers directly with customers, ensuring fresh, organic vegetables are delivered straight to your doorstep! This platform empowers farmers to manage their product listings and allows customers to browse, order, and receive personalized recommendations based on their family size.
-
+Note:Backend work has not yet started.
 ---
 
 ## Table of Contents
